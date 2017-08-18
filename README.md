@@ -37,6 +37,18 @@ In order to run the editor, you simply do
 $ ./run.sh a-file
 ```
 
+## A little something on developing this editor
+
+The keybindings in this editor are sort of emacs-based. Which means that
+you press `C-n`, `C-p` for next line and previous line, respectively.
+
+Now, for this to work you need to be able to insert _control characters_ into
+the source. In emacs inserting `C-a` into your file is done by first pressing `C-q` and then `c-a`.
+In vi you'd do this by first going into insert-mode, and then pressing `C-v` followed by `a`.
+
+In other, inferior, editors, this seems to be a royal PITA, most of them cannot even display
+control characters correctly.
+
 ## Ideas to play with
 
 Please have a look at the [issues](https://github.com/slipset/editor/issues) where I've collected some 
