@@ -1,7 +1,7 @@
 # WAT?
 
 This is a reimplementation of [Gary Bernhardts](https://github.com/garybernhardt) editor 
-whic he presented in his [Text editor from scratch](https://www.destroyallsoftware.com/screencasts/catalog/text-editor-from-scratch) screen cast. If you haven't yet [subscribed](https://www.destroyallsoftware.com/screencasts/users/sign_up) to Destroy all software, please do.
+which he presented in his [Text editor from scratch](https://www.destroyallsoftware.com/screencasts/catalog/text-editor-from-scratch) screen cast. If you haven't yet [subscribed](https://www.destroyallsoftware.com/screencasts/users/sign_up) to Destroy all software, please do.
 
 ## Goals
 
