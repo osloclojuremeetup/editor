@@ -67,16 +67,23 @@
         [pre post] (split-at x current-line)]
     (assoc-in state [:buffer y] (str (apply str (butlast pre)) (apply str post)))))
 
+(def ctrl-q (.fromCharCode js/String 17))
+(def ctrl-n (.fromCharCode js/String 14))
+(def ctrl-p (.fromCharCode js/String 16))
+(def ctrl-b (.fromCharCode js/String 2))
+(def ctrl-f (.fromCharCode js/String 6))
+(def ctrl-h (.fromCharCode js/String 8))
+
 (defn handle-input [{:keys [buffer cursor] :as state}]
-  (let [ch ((:raw-read core/*in*))]
-    (condp = ch
-      "" (core/exit 0)
-      "" (clamp-y (move-down state))
-      "" (clamp-y (move-up state))
-      "" (clamp-x (move-left state))
-      "" (clamp-x (move-right state))
-      "" ((comp move-left backspace) state)
-      ((comp move-right insert) state ch))))
+      (let [ch ((:raw-read core/*in*))]
+           (condp = ch
+             ctrl-q (core/exit 0)
+             ctrl-n (clamp-y (move-down state))
+             ctrl-p (clamp-y (move-up state))
+             ctrl-b (clamp-x (move-left state))
+             ctrl-f (clamp-x (move-right state))
+             ctrl-h ((comp move-left backspace) state)
+             ((comp move-right insert) state ch))))
 
 (defn editor [file-contents]
 
