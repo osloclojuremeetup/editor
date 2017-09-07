@@ -75,15 +75,15 @@
 (def ctrl-h (.fromCharCode js/String 8))
 
 (defn handle-input [{:keys [buffer cursor] :as state}]
-      (let [ch ((:raw-read core/*in*))]
-           (condp = ch
-             ctrl-q (core/exit 0)
-             ctrl-n (clamp-y (move-down state))
-             ctrl-p (clamp-y (move-up state))
-             ctrl-b (clamp-x (move-left state))
-             ctrl-f (clamp-x (move-right state))
-             ctrl-h ((comp move-left backspace) state)
-             ((comp move-right insert) state ch))))
+  (let [ch ((:raw-read core/*in*))]
+    (condp = ch
+      ctrl-q (core/exit 0)
+      ctrl-n (clamp-y (move-down state))
+      ctrl-p (clamp-y (move-up state))
+      ctrl-b (clamp-x (move-left state))
+      ctrl-f (clamp-x (move-right state))
+      ctrl-h ((comp move-left backspace) state)
+      ((comp move-right insert) state ch))))
 
 (defn editor [file-contents]
 
